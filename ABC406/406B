@@ -1,0 +1,9 @@
+N,K = map(int,input().split())
+A = list(map(int,input().split()))
+value = 1
+REF = 10**K
+for i in range(N):
+    value *= A[i]
+    if value >= REF:
+        value = 1
+print(value)

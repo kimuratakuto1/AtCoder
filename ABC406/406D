@@ -1,0 +1,35 @@
+H,W,N = map(int,input().split())
+trash = [list(map(int,input().split())) for _ in range(N)]
+Q = int(input())
+query = [list(map(int,input().split())) for _ in range(Q)]
+hdict = {i+1:[] for i in range(H)}
+wdict = {i+1:[] for i in range(W)}
+hcount = [0 for _ in range(H+1)]
+wcount = [0 for _ in range(W+1)]
+for i in range(N):
+    x,y = trash[i][0],trash[i][1]
+    hdict[x].append(y)
+    wdict[y].append(x)
+    hcount[x] += 1
+    wcount[y] += 1
+
+for i in range(Q):
+    q = query[i]
+    if q[0] == 1:
+        x = q[1]
+        print(hcount[x])
+        for j in hdict[x]:
+            wcount[j] -= 1
+            if wcount[j] < 0:
+                wcount[j] = 0
+        hdict[x] = []
+        hcount[x] = 0
+    else:
+        y = q[1]
+        print(wcount[y])
+        for j in wdict[y]:
+            hcount[j] -= 1
+            if hcount[j] < 0:
+                hcount[j] = 0
+        wdict[y] = []
+        wcount[y] = 0
