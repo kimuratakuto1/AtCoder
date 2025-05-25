@@ -5,7 +5,5 @@ if c < a:
 elif c == a:
     if d <= b:
         flag = True
-if flag:
-    print("Yes")
-else:
-    print("No")
+ans = "Yes" if flag else "No"
+print(ans)
