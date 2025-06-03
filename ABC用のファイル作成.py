@@ -6,4 +6,4 @@ file_names = ["A", "B", "C", "D", "E"]
 for name in file_names:
     file_path = folder_path / (numbering + name + ".py")
     file_path.touch()
-print("ABC準備完了")
+print("ABC" + numbering + "準備完了")
